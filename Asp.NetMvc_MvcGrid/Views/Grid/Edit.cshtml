@@ -1,0 +1,30 @@
+﻿@model Asp.NetMvc_MvcGrid.Models.Employee
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div class="input-group">
+        <span class="input-group-addon" id="txt_first"><i class="glyphicon glyphicon-user"></i></span>
+        @Html.TextBoxFor(m => m.firstName, new { @class = "form-control", placeholder = "First Name", aria_describedby = "txt_first" })
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon" id="txt_last"><i class="glyphicon glyphicon-user"></i></span>
+        @Html.TextBoxFor(m => m.lastName, new { @class = "form-control", placeholder = "Last Name", aria_describedby = "txt_last" })
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon" id="txt_age"><i class="glyphicon glyphicon-time"></i></span>
+        @Html.TextBoxFor(m => m.Age, new { @class = "form-control", placeholder = "Age", aria_describedby = "txt_age" })
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon" id="txt_countries"><i class="glyphicon glyphicon-globe"></i></span>
+        @Html.DropDownListFor(m => m.Country.Id, (List<SelectListItem>)ViewBag.Countries, new { @class = "form-control", aria_describedby = "txt_countries" })
+    </div>
+    <br />
+    <input type="submit" class="btn btn-success" value="Submit" />
+    @Html.HiddenFor(m=>m.Id)
+}
